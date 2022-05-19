@@ -25,16 +25,20 @@
         <button id="toggle">toggle front item</button>
     </form>
     <div class="compare" data-compare-form-selector="#control">
-        <iframe src="https://macsigner.github.io/webpro-exercise-testimonials-grid-section/"
-                id="iframe"
-                class="compare__iframe"></iframe>
-        <img src="https://macsigner.github.io/webpro-exercise-testimonials-grid-section/design/desktop-design.jpg"
-             class="compare__image"
-             alt="Design image">
+        <div class="compare__alt">
+            <iframe src="https://macsigner.github.io/webpro-exercise-testimonials-grid-section/"
+                    id="iframe"
+                    class="compare__iframe"></iframe>
+        </div>
+        <div class="compare__main">
+            <img src="https://macsigner.github.io/webpro-exercise-testimonials-grid-section/design/desktop-design.jpg"
+                 class="compare__image"
+                 alt="Design image">
+        </div>
         <input type="range"
                form="control"
                id="compare-horizontal"
-               class="compare__slider-horizontal"
+               class="compare__control-x"
                min="0"
                max="1000"
                value="1000">
@@ -42,7 +46,7 @@
                form="control"
                id="compare-vertical"
                orient="vertical"
-               class="compare__slider-vertical"
+               class="compare__control-y"
                min="0"
                max="1000"
                value="1000">

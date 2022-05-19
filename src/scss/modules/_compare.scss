@@ -1,0 +1,65 @@
+/* **************************************************************************
+ *  MEDIA MOTION AG                                                         *
+ ****************************************************************************
+
+    Funktion      compare bem module
+    Authors       Mac Signer
+    Datum         19.05.22
+
+*****************************************************************************/
+
+/*
+.compare
+
+Styleguide classes.compare
+*/
+
+.compare {
+    position: relative;
+
+    &__main {
+        position: relative;
+        z-index: 10;
+    }
+
+    &__alt {
+        &,
+        iframe {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 11;
+        }
+
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__control-x,
+    &__control-y {
+        position: absolute;
+    }
+
+    &__control-x {
+        top: 100%;
+        right: 0;
+        left: 0;
+    }
+
+    &__control-y {
+        top: 0;
+        bottom: 0;
+        left: 100%;
+        width: 2rem;
+        height: 100%;
+        direction: rtl;
+        writing-mode: tb-lr;
+        -webkit-appearance: slider-vertical;
+        transform: scale(-1);
+    }
+}

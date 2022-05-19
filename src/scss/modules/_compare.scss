@@ -44,6 +44,11 @@ Styleguide classes.compare
         z-index: 20;
     }
 
+    &--diff &__main,
+    &--switch.compare--diff &__design {
+        mix-blend-mode: difference;
+    }
+
     &__control-x,
     &__control-y {
         position: absolute;

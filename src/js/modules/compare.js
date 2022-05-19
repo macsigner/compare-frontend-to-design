@@ -8,8 +8,11 @@ class Compare {
         toggleButton.addEventListener('click', () => {
             this.el.classList.toggle("compare--switch");
         })
-        console.log(this.el);
-        console.log(this.form);
+
+        let diffCheckbox = this.form.querySelector('#diff');
+        diffCheckbox.addEventListener("change", () => {
+            this.el.classList.toggle("compare--diff");
+        });
     }
 
     _formSubmitDelegation(e) {

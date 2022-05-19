@@ -16,6 +16,9 @@ Styleguide classes.compare
 
 .compare {
     position: relative;
+    display: inline-flex;
+    margin-right: auto;
+    margin-left: auto;
 
     &__design {
         position: relative;

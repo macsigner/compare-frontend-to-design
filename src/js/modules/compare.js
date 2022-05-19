@@ -23,10 +23,20 @@ class Compare {
             this.image.src = this.designSource.value.trim() || this.image.src;
             this.iframe.src = this.mainSource.value.trim() || this.iframe.src;
         });
+
+        let nlCompareAxes = this.el.querySelectorAll("#compare-horizontal, #compare-vertical");
+        nlCompareAxes.forEach(el => el.addEventListener('input', this.updateClipPathVars.bind(this)));
     }
 
     _formSubmitDelegation(e) {
         e.preventDefault();
+    }
+
+    updateClipPathVars(e) {
+        let propertyName = "--" + e.target.id;
+        let propertyValue = parseInt(e.target.value) / 10 + "%";
+
+        this.el.style.setProperty(propertyName, propertyValue);
     }
 }
 

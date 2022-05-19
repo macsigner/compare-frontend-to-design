@@ -40,7 +40,23 @@ Styleguide classes.compare
         }
     }
 
-    &--switch  &__design {
+    &__main,
+    &--switch &__design {
+        clip-path: polygon(
+                0% 0%,
+                var(--compare-horizontal, 100%) 0%,
+                var(--compare-horizontal, 100%) var(--compare-vertical, 100%),
+                0% var(--compare-vertical, 100%)
+        );
+    }
+
+    &--switch &__main {
+        z-index: -1;
+        clip-path: none;
+        mix-blend-mode: none;
+    }
+
+    &--switch &__design {
         z-index: 20;
     }
 

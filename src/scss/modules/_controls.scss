@@ -1,0 +1,31 @@
+/**
+ * controls bem module
+ */
+
+.controls {
+    display: grid;
+    grid-template-columns: auto auto;
+
+    > :nth-child(odd) {
+        margin-right: auto;
+    }
+
+    > :nth-child(even) {
+        margin-left: auto;
+    }
+
+    [type='text'] {
+        overflow: hidden;
+        width: 100%;
+        border: none;
+        text-align: right;
+        color: $color-disabled;
+        opacity: .5;
+        text-overflow: ellipsis;
+
+        &:focus {
+            color: $color-disabled;
+            outline: none;
+        }
+    }
+}

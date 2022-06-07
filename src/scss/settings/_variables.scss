@@ -13,6 +13,7 @@ $color-off-black: #181717;
 $color-off-white: whitesmoke;
 $color-alert: red;
 $color-success: green;
+$color-disabled: scale-color($color-off-black, $lightness: -30%);
 
 /* font-sizes */
 $font-size-90: 1.4rem;

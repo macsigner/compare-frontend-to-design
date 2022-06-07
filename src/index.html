@@ -14,13 +14,14 @@
     <h1>Compare</h1>
 </header>
 <main>
-    <form id="control">
-        <label>iframe: <input type="text" name="iframe" id="main-path"></label>
-        <label>design: <input type="text" name="design" id="design-path"></label>
+    <form id="control" class="controls">
+        <label for="main-path">iframe:</label><input type="text" name="iframe" id="main-path">
+        <label for="design-path">design:</label><input type="text" name="design" id="design-path">
         <label for="add-upload-image">Upload Image</label>
         <input type="checkbox" id="add-upload-image" name="add-upload-image" value="difference">
-        <label>Upload: <input type="text" name="desing-upload" id="desing-upload"></label>
-        <label><input type="checkbox" id="diff" name="filter" value="difference"> Diff</label>
+        <label for="desing-upload">Upload:</label><input type="file" name="desing-upload" id="desing-upload">
+        <label for="diff">Diff</label>
+        <input type="checkbox" id="diff" name="filter" value="difference">
         <button id="update">update</button>
         <button id="toggle">toggle front item</button>
     </form>

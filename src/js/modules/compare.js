@@ -8,24 +8,21 @@ class Compare {
         this.image = this.el.querySelector('.compare__design img');
         this.iframe = this.el.querySelector('.compare__main iframe');
 
-        let toggleButton = this.form.querySelector('#toggle');
-        toggleButton.addEventListener('click', () => {
+        this.form.querySelector('#toggle').addEventListener('click', () => {
             this.el.classList.toggle("compare--switch");
         })
 
-        let diffCheckbox = this.form.querySelector('#diff');
-        diffCheckbox.addEventListener("change", () => {
+        this.form.querySelector('#diff').addEventListener("change", () => {
             this.el.classList.toggle("compare--diff");
         });
 
-        let updateButton = this.form.querySelector('#update');
-        updateButton.addEventListener('click', () => {
+        this.form.querySelector('#update').addEventListener('click', () => {
             this.image.src = this.designSource.value.trim() || this.image.src;
             this.iframe.src = this.mainSource.value.trim() || this.iframe.src;
         });
 
-        let nlCompareAxes = this.el.querySelectorAll("#compare-horizontal, #compare-vertical");
-        nlCompareAxes.forEach(el => el.addEventListener('input', this.updateClipPathVars.bind(this)));
+        this.el.querySelectorAll("#compare-horizontal, #compare-vertical")
+            .forEach(el => el.addEventListener('input', this.updateClipPathVars.bind(this)));
     }
 
     _formSubmitDelegation(e) {

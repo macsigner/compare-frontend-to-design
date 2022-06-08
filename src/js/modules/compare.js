@@ -1,4 +1,11 @@
+/**
+ * Compare app.
+ */
 class Compare {
+    /**
+     * Construct.
+     * @param el
+     */
     constructor(el) {
         this.el = el;
         this.form = document.querySelector(el.dataset.compareFormSelector);
@@ -25,10 +32,19 @@ class Compare {
             .forEach(el => el.addEventListener('input', this.updateClipPathVars.bind(this)));
     }
 
+    /**
+     * Submit event delegation.
+     * @param e
+     * @private
+     */
     _formSubmitDelegation(e) {
         e.preventDefault();
     }
 
+    /**
+     * Update clip path variables.
+     * @param e
+     */
     updateClipPathVars(e) {
         let propertyName = "--" + e.target.id;
         let propertyValue = parseInt(e.target.value) / 10 + "%";

@@ -14,6 +14,7 @@ class Compare {
         this.mainSource = this.form.querySelector('#main-path');
         this.image = this.el.querySelector('.compare__design img');
         this.iframe = this.el.querySelector('.compare__main iframe');
+        this.reader = new FileReader();
 
         this.form.querySelector('#toggle').addEventListener('click', () => {
             this.el.classList.toggle("compare--switch");
@@ -29,6 +30,16 @@ class Compare {
 
         this.el.querySelectorAll("#compare-horizontal, #compare-vertical")
             .forEach(el => el.addEventListener('input', this.updateClipPathVars.bind(this)));
+
+        this.reader.addEventListener('loadend', () => {
+            this.designSource.value = this.reader.result;
+
+            this._updateSources();
+        });
+
+        this.form.querySelector('#design-upload').addEventListener('change', (e) => {
+            this.reader.readAsDataURL(e.target.files[0]);
+        });
 
         this._updateSources();
     }

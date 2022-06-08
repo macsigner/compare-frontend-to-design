@@ -24,12 +24,13 @@ class Compare {
         });
 
         this.form.querySelector('#update').addEventListener('click', () => {
-            this.image.src = this.designSource.value.trim() || this.image.src;
-            this.iframe.src = this.mainSource.value.trim() || this.iframe.src;
+            this._updateSources();
         });
 
         this.el.querySelectorAll("#compare-horizontal, #compare-vertical")
             .forEach(el => el.addEventListener('input', this.updateClipPathVars.bind(this)));
+
+        this._updateSources();
     }
 
     /**
@@ -39,6 +40,20 @@ class Compare {
      */
     _formSubmitDelegation(e) {
         e.preventDefault();
+    }
+
+    /**
+     * Update sources in compare.
+     * @private
+     */
+    _updateSources() {
+        let newImageSource = this.designSource.value.trim() || this.image.src;
+        this.image.src = newImageSource;
+        this.designSource.placeholder = newImageSource;
+
+        let newIframeSource = this.mainSource.value.trim() || this.iframe.src
+        this.iframe.src = newIframeSource;
+        this.mainSource.placeholder = newIframeSource;
     }
 
     /**

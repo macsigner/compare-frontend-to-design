@@ -37,11 +37,11 @@
         transition: right .1s, transform .1s;
     }
 
-    :checked ~ & {
+    :checked + & {
         --switch-bg-color: #{$color-success};
     }
 
-    :checked ~ &::after {
+    :checked + &::after {
         right: var(--switch-inner-padding);
         transform: translateX(0);
     }

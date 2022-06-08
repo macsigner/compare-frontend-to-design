@@ -6,6 +6,9 @@
     display: grid;
     grid-template-columns: auto auto;
     grid-gap: .2rem 1rem;
+    width: 50rem;
+    max-width: 100%;
+    margin-left: auto;
 
     label {
         margin-right: auto;
@@ -32,6 +35,18 @@
         &:focus {
             color: $color-disabled;
             outline: none;
+        }
+    }
+
+    #design-upload,
+    [for='design-upload'] {
+        display: none;
+    }
+
+    [id='add-upload-image']:checked {
+        ~ #design-upload,
+        ~ [for='design-upload'] {
+            display: block;
         }
     }
 }

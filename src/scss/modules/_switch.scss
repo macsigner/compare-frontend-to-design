@@ -1,0 +1,48 @@
+/**
+ * switch bem module
+ */
+
+:root {
+    --switch-bg-color: #{$color-accent-bg};
+    --switch-outer-size: 2em;
+    --switch-inner-padding: 5px;
+    --switch-inner-size: calc(var(--switch-outer-size) - 2 * var(--switch-inner-padding));
+}
+
+.switch {
+    overflow: hidden;
+    position: relative;
+    display: block;
+    background-color: var(--switch-bg-color);
+    width: 3em;
+    height: 2em;
+    border-radius: 1em;
+    transition: background .1s;
+    cursor: pointer;
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: calc(100% - var(--switch-inner-padding));
+        bottom: 0;
+        width: var(--switch-inner-size);
+        height: var(--switch-inner-size);
+        margin: auto;
+        border-radius: 50%;
+        transform: translateX(100%);
+        background-color: $color-off-white;
+        background-clip: content-box;
+        transition: right .1s, transform .1s;
+    }
+
+    :checked ~ & {
+        --switch-bg-color: #{$color-success};
+    }
+
+    :checked ~ &::after {
+        right: var(--switch-inner-padding);
+        transform: translateX(0);
+    }
+}

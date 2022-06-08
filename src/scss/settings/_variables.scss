@@ -12,8 +12,9 @@ $color-white: #FFF;
 $color-off-black: #181717;
 $color-off-white: whitesmoke;
 $color-alert: red;
-$color-success: green;
-$color-disabled: scale-color($color-off-black, $lightness: -30%);
+$color-success: #37d937;
+$color-disabled: scale-color($color-off-black, $lightness: 30%);
+$color-accent-bg: lightgrey;
 
 /* font-sizes */
 $font-size-90: 1.4rem;

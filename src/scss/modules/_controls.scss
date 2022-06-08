@@ -6,12 +6,17 @@
     display: grid;
     grid-template-columns: auto auto;
 
-    > :nth-child(odd) {
+    label {
         margin-right: auto;
     }
 
-    > :nth-child(even) {
+    input,
+    .switch {
         margin-left: auto;
+    }
+
+    .switch {
+        margin-right: 0;
     }
 
     [type='text'] {

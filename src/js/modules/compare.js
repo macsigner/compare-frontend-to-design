@@ -18,10 +18,6 @@ class Compare {
 
         this.form.addEventListener('change', this._eventDelegation.bind(this));
 
-        this.form.querySelector('#diff').addEventListener("change", (e) => {
-            e.target.checked ? this.el.classList.add("compare--diff") : this.el.classList.remove("compare--diff");
-        });
-
         this.form.querySelector('#update').addEventListener('click', () => {
             this._updateSources();
         });
@@ -47,6 +43,14 @@ class Compare {
     }
 
     /**
+     * Toggle image diff.
+     * @param el
+     */
+    toggleDiff(el) {
+        el.checked ? this.el.classList.add("compare--diff") : this.el.classList.remove("compare--diff");
+    }
+
+    /**
      * Update clip path variables.
      * @param e
      */
@@ -67,8 +71,10 @@ class Compare {
 
         if (el.matches('#design-upload')) {
             this._setBaseImageFromField(el);
-        } else if(el.matches('#toggle')) {
+        } else if (el.matches('#toggle')) {
             this.toggleFrontItem(el);
+        } else if (el.matches('#diff')) {
+            this.toggleDiff(el);
         }
     }
 

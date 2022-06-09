@@ -37,13 +37,35 @@ class Compare {
             this._updateSources();
         });
 
-        console.log(this.form.querySelector('#design-upload').files);
-        this.form.querySelector('#design-upload').addEventListener('change', (e) => {
-            if(e.target.length > 0) {
-                this.reader.readAsDataURL(e.target.files[0]);
-            }
-        });
+        this.form.addEventListener('change', this._eventDelegation.bind(this));
 
+        this._updateSources();
+    }
+
+    /**
+     * Delegate events.
+     * @param e
+     * @private
+     */
+    _eventDelegation(e) {
+        let el = e.target;
+
+        if (el.matches('#design-upload')) {
+            this._setBaseImageFromField(el);
+        }
+    }
+
+    /**
+     * Set image from specified field.
+     * @param el
+     * @private
+     */
+    _setBaseImageFromField(el) {
+        if (!el.files.length > 0) {
+            return;
+        }
+
+        this.reader.readAsDataURL(el.files[0]);
         this._updateSources();
     }
 

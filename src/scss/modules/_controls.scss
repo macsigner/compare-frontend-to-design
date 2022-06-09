@@ -23,7 +23,8 @@
         margin-right: 0;
     }
 
-    [type='text'] {
+    [type='text'],
+    [type='url'] {
         overflow: hidden;
         width: 100%;
         border: none;
@@ -38,13 +39,17 @@
         }
     }
 
-    #design-upload,
+    [type='url']:invalid {
+        outline: 1px solid $color-alert;
+    }
+
+    [id='design-upload'],
     [for='design-upload'] {
         display: none;
     }
 
     [id='add-upload-image']:checked {
-        ~ #design-upload,
+        ~ [id='design-upload'],
         ~ [for='design-upload'] {
             display: block;
         }

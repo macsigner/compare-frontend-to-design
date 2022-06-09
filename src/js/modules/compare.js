@@ -16,12 +16,12 @@ class Compare {
         this.iframe = this.el.querySelector('.compare__main iframe');
         this.reader = new FileReader();
 
-        this.form.querySelector('#toggle').addEventListener('click', () => {
-            this.el.classList.toggle("compare--switch");
+        this.form.querySelector('#toggle').addEventListener('change', (e) => {
+            e.target.checked ? this.el.classList.add("compare--switch") : this.el.classList.remove("compare--switch");
         })
 
-        this.form.querySelector('#diff').addEventListener("change", () => {
-            this.el.classList.toggle("compare--diff");
+        this.form.querySelector('#diff').addEventListener("change", (e) => {
+            e.target.checked ? this.el.classList.add("compare--diff") : this.el.classList.remove("compare--diff");
         });
 
         this.form.querySelector('#update').addEventListener('click', () => {
@@ -37,8 +37,11 @@ class Compare {
             this._updateSources();
         });
 
+        console.log(this.form.querySelector('#design-upload').files);
         this.form.querySelector('#design-upload').addEventListener('change', (e) => {
-            this.reader.readAsDataURL(e.target.files[0]);
+            if(e.target.length > 0) {
+                this.reader.readAsDataURL(e.target.files[0]);
+            }
         });
 
         this._updateSources();

@@ -16,9 +16,7 @@ class Compare {
         this.iframe = this.el.querySelector('.compare__main iframe');
         this.reader = new FileReader();
 
-        this.form.querySelector('#toggle').addEventListener('change', (e) => {
-            e.target.checked ? this.el.classList.add("compare--switch") : this.el.classList.remove("compare--switch");
-        })
+        this.form.addEventListener('change', this._eventDelegation.bind(this));
 
         this.form.querySelector('#diff').addEventListener("change", (e) => {
             e.target.checked ? this.el.classList.add("compare--diff") : this.el.classList.remove("compare--diff");
@@ -37,9 +35,26 @@ class Compare {
             this._updateSources();
         });
 
-        this.form.addEventListener('change', this._eventDelegation.bind(this));
-
         this._updateSources();
+    }
+
+    /**
+     * Toggle front item.
+     * @param el
+     */
+    toggleFrontItem(el) {
+        el.checked ? this.el.classList.add("compare--switch") : this.el.classList.remove("compare--switch");
+    }
+
+    /**
+     * Update clip path variables.
+     * @param e
+     */
+    updateClipPathVars(e) {
+        let propertyName = "--" + e.target.id;
+        let propertyValue = parseInt(e.target.value) / 10 + "%";
+
+        this.el.style.setProperty(propertyName, propertyValue);
     }
 
     /**
@@ -52,6 +67,8 @@ class Compare {
 
         if (el.matches('#design-upload')) {
             this._setBaseImageFromField(el);
+        } else if(el.matches('#toggle')) {
+            this.toggleFrontItem(el);
         }
     }
 
@@ -90,17 +107,6 @@ class Compare {
         let newIframeSource = this.mainSource.value.trim() || this.iframe.src
         this.iframe.src = newIframeSource;
         this.mainSource.placeholder = newIframeSource;
-    }
-
-    /**
-     * Update clip path variables.
-     * @param e
-     */
-    updateClipPathVars(e) {
-        let propertyName = "--" + e.target.id;
-        let propertyValue = parseInt(e.target.value) / 10 + "%";
-
-        this.el.style.setProperty(propertyName, propertyValue);
     }
 }
 

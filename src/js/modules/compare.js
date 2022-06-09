@@ -17,10 +17,7 @@ class Compare {
         this.reader = new FileReader();
 
         this.form.addEventListener('change', this._eventDelegation.bind(this));
-
-        this.form.querySelector('#update').addEventListener('click', () => {
-            this._updateSources();
-        });
+        this.form.addEventListener('click', this._eventDelegation.bind(this));
 
         this.el.querySelectorAll("#compare-horizontal, #compare-vertical")
             .forEach(el => el.addEventListener('input', this.updateClipPathVars.bind(this)));
@@ -75,6 +72,8 @@ class Compare {
             this.toggleFrontItem(el);
         } else if (el.matches('#diff')) {
             this.toggleDiff(el);
+        } else if (el.matches('#update')) {
+            this._updateSources();
         }
     }
 

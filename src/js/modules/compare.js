@@ -98,6 +98,14 @@ class Compare {
      */
     _formSubmitDelegation(e) {
         e.preventDefault();
+
+        let form = new FormData(e.target);
+        let settings = {};
+
+        for (let val of form.entries()) {
+        }
+
+        this._updateSources();
     }
 
     /**
@@ -107,11 +115,11 @@ class Compare {
     _updateSources() {
         let newImageSource = this.designSource.value.trim() || this.image.src;
         this.image.src = newImageSource;
-        this.designSource.placeholder = newImageSource;
+        this.designSource.value = newImageSource;
 
         let newIframeSource = this.mainSource.value.trim() || this.iframe.src
         this.iframe.src = newIframeSource;
-        this.mainSource.placeholder = newIframeSource;
+        this.mainSource.value = newIframeSource;
     }
 }
 

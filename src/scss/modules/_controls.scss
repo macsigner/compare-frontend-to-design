@@ -34,9 +34,15 @@
         text-overflow: ellipsis;
 
         &:focus {
-            color: $color-disabled;
             outline: none;
+            color: $color-off-black;
+            opacity: 1;
         }
+    }
+
+    [type='checkbox'] {
+        position: absolute;
+        opacity: 0;
     }
 
     [type='url']:invalid {

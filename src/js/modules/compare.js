@@ -1,3 +1,5 @@
+import * as Tools from '../tools.js';
+
 /**
  * Compare app.
  */
@@ -17,10 +19,10 @@ class Compare {
         this.reader = new FileReader();
 
         this.form.addEventListener('change', this._eventDelegation.bind(this));
-        this.form.addEventListener('click', this._eventDelegation.bind(this));
-
-        this.el.querySelectorAll("#compare-horizontal, #compare-vertical")
-            .forEach(el => el.addEventListener('input', this.updateClipPathVars.bind(this)));
+        this.form.addEventListener('click', Tools.delegate('#update', this._updateSources.bind(this)));
+        this.el.addEventListener('input', Tools.delegate(
+            '#compare-horizontal, #compare-vertical',
+            this.updateClipPathVars.bind(this)));
 
         this.reader.addEventListener('loadend', () => {
             this.designSource.value = this.reader.result;

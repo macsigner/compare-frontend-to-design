@@ -1,4 +1,5 @@
 import * as Tools from '../tools.js';
+import Scale from './scale';
 
 /**
  * Compare app.
@@ -17,6 +18,8 @@ class Compare {
         this.image = this.el.querySelector('.compare__design img');
         this.iframe = this.el.querySelector('.compare__main iframe');
         this.reader = new FileReader();
+
+        new Scale(this.image);
 
         this.form.addEventListener('change', this._eventDelegation.bind(this));
         this.form.addEventListener('click', Tools.delegate('#update', this._updateSources.bind(this)));

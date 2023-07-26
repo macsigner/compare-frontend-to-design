@@ -19,6 +19,9 @@ Styleguide classes.compare
     display: inline-flex;
     margin-right: auto;
     margin-left: auto;
+    width: var(--scale-width, auto);
+    transform: scale(var(--scale, 1));
+    transform-origin: 0 0;
 
     &__design {
         position: relative;

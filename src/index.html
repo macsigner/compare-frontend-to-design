@@ -14,19 +14,25 @@
     <h1>Compare</h1>
 </header>
 <main>
-    <form id="control" class="controls">
-        <label for="main-path">iframe:</label><input type="url" name="iframe" id="main-path">
-        <label for="design-path">design:</label><input type="url" name="design" id="design-path">
-        <label for="add-upload-image">Upload Image</label>
-        <input type="checkbox" id="add-upload-image" name="add-upload-image" value="add-upload-image">
-        <label for="add-upload-image" class="switch"></label>
-        <label for="design-upload">Upload:</label><input type="file" name="design-upload" id="design-upload">
-        <label for="diff">Diff</label>
-        <input type="checkbox" id="diff" name="filter" value="difference"><label for="diff" class="switch"></label>
-        <label for="toggle">toggle front item</label>
-        <input type="checkbox" id="toggle" name="filter" value="difference"><label for="toggle" class="switch"></label>
-        <button id="update" class="button">update</button>
-    </form>
+    <div class="control-wrapper">
+        <button class="control-wrapper__toggle"><span class="invisible">Toggle </span>settings<span class="invisible"> form</span></button>
+        <div class="control-wrapper__inner">
+            <h2 class="control-wrapper__title">Settings</h2>
+            <form id="control" class="controls">
+                <label for="main-path">iframe:</label><input type="url" name="iframe" id="main-path">
+                <label for="design-path">design:</label><input type="url" name="design" id="design-path">
+                <label for="add-upload-image">Upload Image</label>
+                <input type="checkbox" id="add-upload-image" name="add-upload-image" value="add-upload-image">
+                <label for="add-upload-image" class="switch"></label>
+                <label for="design-upload">Upload:</label><input type="file" name="design-upload" id="design-upload">
+                <label for="diff">Diff</label>
+                <input type="checkbox" id="diff" name="filter" value="difference"><label for="diff" class="switch"></label>
+                <label for="toggle">toggle front item</label>
+                <input type="checkbox" id="toggle" name="filter" value="difference"><label for="toggle" class="switch"></label>
+                <button id="update" class="button">update</button>
+            </form>
+        </div>
+    </div>
     <div class="compare" data-compare-form-selector="#control">
         <div class="compare__main">
             <iframe src="https://macsigner.github.io/webpro-exercise-testimonials-grid-section/"

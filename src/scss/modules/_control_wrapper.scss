@@ -1,0 +1,45 @@
+/**
+ * control-wrapper bem module
+ */
+
+:root {
+    --control-wrapper-toggle-size: 4rem;
+}
+
+.control-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    margin: 1rem;
+
+    &__inner,
+    &__toggle {
+        border-radius: .4rem;
+        background-color: var(--bg-color);
+    }
+
+    &__inner {
+        padding: 1rem;
+        box-shadow: 3px 4px 4px 4px rgba($color-black, .08), -2px -1px 4px 3px rgba($color-black, .1);
+        transition: transform var(--trans-out);
+        transform: scale(0);
+        transform-origin: 100% 0;
+    }
+
+    &.open &__inner {
+        transform: scale(1);
+        transition-duration: var(--trans-in);
+    }
+
+    &__toggle {
+        --s: var(--control-wrapper-toggle-size);
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 10;
+        margin: 1rem 1rem 0 0;
+        padding: 1rem;
+    }
+}

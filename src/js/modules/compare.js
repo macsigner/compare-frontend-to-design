@@ -30,6 +30,10 @@ class Compare {
             this._updateSources();
         });
 
+        document.addEventListener('click', Tools.delegate('.control-wrapper__toggle', (e)=> {
+            e.target.closest('.control-wrapper').classList.toggle('open');
+        }))
+
         this._updateSources();
     }
 
